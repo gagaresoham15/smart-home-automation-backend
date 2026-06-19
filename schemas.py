@@ -1,7 +1,10 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 from datetime import datetime
-from .models import UserRole
+try:
+    from .models import UserRole
+except (ImportError, ValueError):
+    from models import UserRole
 
 # Auth Schemas
 class Token(BaseModel):

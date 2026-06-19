@@ -2,8 +2,12 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from . import models, auth, database, schemas
-from .routers import admin, user, devices
+try:
+    from . import models, auth, database, schemas
+    from .routers import admin, user, devices
+except (ImportError, ValueError):
+    import models, auth, database, schemas
+    from routers import admin, user, devices
 import datetime
 
 # Create database tables

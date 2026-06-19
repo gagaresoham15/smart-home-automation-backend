@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Enum
 from sqlalchemy.orm import relationship
-from .database import Base
+try:
+    from .database import Base
+except (ImportError, ValueError):
+    from database import Base
 import datetime
 import enum
 

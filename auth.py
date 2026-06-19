@@ -5,7 +5,10 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from . import models, schemas, database
+try:
+    from . import models, schemas, database
+except (ImportError, ValueError):
+    import models, schemas, database
 import os
 
 # Configuration

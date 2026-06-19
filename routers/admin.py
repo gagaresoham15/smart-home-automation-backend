@@ -3,7 +3,10 @@ from sqlalchemy.orm import Session
 from typing import List
 import pandas as pd
 import io
-from .. import models, schemas, auth, database
+try:
+    from .. import models, schemas, auth, database
+except (ImportError, ValueError):
+    import models, schemas, auth, database
 
 from sqlalchemy import func
 import datetime

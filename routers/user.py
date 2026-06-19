@@ -1,10 +1,14 @@
+
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status, File, UploadFile
 from sqlalchemy.orm import Session
 import shutil
 import os
 import uuid
-from .. import models, schemas, auth, database
+try:
+    from .. import models, schemas, auth, database
+except (ImportError, ValueError):
+    import models, schemas, auth, database
 
 router = APIRouter(
     prefix="/user",
