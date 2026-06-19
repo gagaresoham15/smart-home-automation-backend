@@ -2,7 +2,7 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 from datetime import datetime
 try:
-    from .models import UserRole
+    from models import UserRole
 except (ImportError, ValueError):
     from models import UserRole
 
