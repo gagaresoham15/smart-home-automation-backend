@@ -6,7 +6,10 @@ try:
     from . import models, auth, database, schemas
     from .routers import admin, user, devices
 except (ImportError, ValueError):
-    import models, auth, database, schemas
+    import models
+    import auth
+    import database
+    import schemas
     from routers import admin, user, devices
 import datetime
 
