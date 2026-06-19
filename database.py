@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:6145@127.0.0.1/smart_home")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:lDsOuacgBCe1NoozLA0vtQLR0CZEeWRw@dpg-d8qjjobeo5us73co2cg0-a.oregon-postgres.render.com:5432/smart_home_ich0")
 
 print(f"--- DATABASE CONNECTION: {SQLALCHEMY_DATABASE_URL} ---")
 
