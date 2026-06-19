@@ -6,7 +6,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 try:
-    from import models, schemas, database
+    from . import models, schemas, database
 except (ImportError, ValueError):
     import models, schemas, database
 import os

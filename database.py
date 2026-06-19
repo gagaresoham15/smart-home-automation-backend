@@ -34,6 +34,11 @@ SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 if not SQLALCHEMY_DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable is not set")
 
+# Clean the URL (remove optional surrounding quotes and leading "DATABASE_URL=" prefix if present)
+SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.strip().strip("'\"")
+if SQLALCHEMY_DATABASE_URL.startswith("DATABASE_URL="):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL[len("DATABASE_URL="):].strip().strip("'\"")
+
 # Render compatibility
 if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
     SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace(
